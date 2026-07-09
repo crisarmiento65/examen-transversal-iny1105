@@ -1,6 +1,6 @@
 # Examen Transversal - INY1105 Infraestructura de Aplicaciones I
 
-**Nombre:** [TU NOMBRE COMPLETO AQUI]
+**Nombre:** Cristóbal Sarmiento
 
 ---
 
