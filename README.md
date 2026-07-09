@@ -42,7 +42,7 @@ Cliente -- HTTP:80 --> [ mynginx_container ] --> [ myapp_container ] --> [ db_co
 ```
 
 - **mynginx_container**: NGINX actua como reverse proxy. Escucha en el puerto 80 del host y redirige las peticiones HTTP hacia myapp en el puerto 5000 interno.
-- **myapp_container**: Aplicacion web Python/Flask construida con imagen propia (FROM python:3-slim). Al recibir una peticion en "/", se conecta a PostgreSQL, registra la visita y muestra el contador.
+- **myapp_container**: Aplicacion web Python/Flask construida con imagen propia (FROM python:3.12-slim). Al recibir una peticion en "/", se conecta a PostgreSQL, registra la visita y muestra el contador.
 - **db_container**: PostgreSQL 15 con un volumen Docker (pgdata) montado en /var/lib/postgresql/data para persistencia de datos.
 - **Red**: Los tres contenedores se comunican a traves de una red bridge llamada vzeta_network.
 - **Volumen**: pgdata asegura que los datos de la base de datos persistan al detener o eliminar los contenedores.
@@ -70,7 +70,7 @@ repo/
 
 1. Iniciar el laboratorio en AWS Academy y abrir la consola AWS.
 2. Ir a EC2 > Launch Instance.
-3. Configurar: nombre "vzeta-docker", Amazon Linux 2023 o Ubuntu 22.04, tipo t2.small, key pair "vockey", security group con puertos 22 (SSH) y 80 (HTTP) abiertos.
+3. Configurar: nombre "vzeta-docker", Amazon Linux 2023 o Ubuntu 22.04, tipo t3.small, key pair "vockey", security group con puertos 22 (SSH) y 80 (HTTP) abiertos.
 4. Lanzar la instancia y conectarse por SSH.
 
 ### 3.2 Instalar Docker Engine y Docker Compose
