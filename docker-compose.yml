@@ -1,0 +1,47 @@
+services:
+  db:
+    image: postgres:15
+    container_name: db_container
+    environment:
+      POSTGRES_DB: vzeta
+      POSTGRES_USER: vzeta_user
+      POSTGRES_PASSWORD: vzeta_pass
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - vzeta_network
+    restart: unless-stopped
+
+  myapp:
+    build: .
+    container_name: myapp_container
+    environment:
+      DB_HOST: db
+      DB_NAME: vzeta
+      DB_USER: vzeta_user
+      DB_PASSWORD: vzeta_pass
+    depends_on:
+      - db
+    networks:
+      - vzeta_network
+    restart: unless-stopped
+
+  mynginx:
+    image: nginx:stable
+    container_name: mynginx_container
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - myapp
+    networks:
+      - vzeta_network
+    restart: unless-stopped
+
+volumes:
+  pgdata:
+
+networks:
+  vzeta_network:
+    driver: bridge
