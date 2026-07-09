@@ -14,7 +14,7 @@
 | Consumo de recursos | Alto: cada VM requiere CPU, RAM y disco dedicados para su SO completo. | Bajo: sin SO adicional, arranque en segundos, menor uso de RAM y disco. |
 | Tiempo de despliegue | Minutos a horas (instalar SO, configurar servicios). | Segundos (descargar imagen y ejecutar contenedor). |
 | Portabilidad | Limitada al hipervisor y formato de imagen (VMDK, VHD, OVA). | Alta: la misma imagen corre en cualquier host con Docker instalado (Linux, Windows, macOS, nube). |
-| Licenciamiento | Requiere licencias del hipervisor (VMware vSphere, Hyper-V Server) y de cada SO guest (Windows Server, RHEL). Costos elevados. | Docker Engine es open source (Apache 2.0). Las imagenes base como python:3-slim y nginx:stable son gratuitas. Solo Docker Desktop comercial tiene licencia paga para empresas grandes. |
+| Licenciamiento | Requiere licencias del hipervisor (VMware vSphere, Hyper-V Server) y de cada SO guest (Windows Server, RHEL). Costos elevados. | Docker Engine es open source (Apache 2.0). Las imagenes base como python:3.12-slim y nginx:stable son gratuitas. Solo Docker Desktop comercial tiene licencia paga para empresas grandes. |
 | Escalabilidad | Escalar implica crear nuevas VMs completas, proceso lento y costoso en recursos. | Escalar implica levantar nuevos contenedores en segundos con Docker Compose o un orquestador. |
 | Aislamiento | Fuerte: cada VM tiene su propio kernel. | Buen aislamiento a nivel de proceso mediante namespaces y cgroups, aunque comparten el kernel del host. |
 
