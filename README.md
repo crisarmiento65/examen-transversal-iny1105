@@ -101,8 +101,8 @@ docker compose version
 ### 3.3 Clonar el repositorio y construir
 
 ```bash
-git clone https://github.com/TU_USUARIO/TU_REPOSITORIO.git
-cd TU_REPOSITORIO
+git clone https://github.com/crisarmiento65/examen-transversal-iny1105.git
+cd examen-transversal-iny1105
 ```
 
 Construir la imagen de myapp:
